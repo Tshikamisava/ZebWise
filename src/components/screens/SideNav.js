@@ -43,22 +43,12 @@ function SideNav({ setContent }) {
             <FaSignOutAlt /> Logout
           </NavLink><br></br>
         </CDBSidebarFooter>
+        
       </CDBSidebar>
 
-      {/* Apply custom styles for the content on the right */}
-      <CDBSidebarContent
-        className="content-style"
-        style={{
-          backgroundColor: '#0E2954',  // Set the background color to blue
-          padding: '16px',
-          flex: 1, 
-          color: '#fff', // Set the text color to white
-        }}
-      >
-        {/* Your content goes here */}
-        <h1>Content</h1>
       
-      </CDBSidebarContent>
+
+      
     </div>
   );
 }

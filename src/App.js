@@ -1,30 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SideNav from './components/Screens/SideNav';
-import Verification from './components/Screens/Verification';
+// 'App.js'
+import './App.css';
+import GeneratePayment from './components/screens/GeneratePayment';
+import SignUp from './components/screens/SignUp';
+// import Verification from './components/screens/Verification';
+import TransactionHistory from './components/screens/TransactionHistory';
+// import Dashboard from './components/screens/Dashboard';
+// // import Home from './components/screens/Home';
+// import BookKeeper from './components/screens/BookKeeper'; 
+//import CreateAccount from './components/screens/CreateAccount'; 
 
-import Dashboard from './components/Screens/Dashboard';
-import Home from './components/Screens/Home';
-import Bookkeeper from './components/Screens/BookKeeper';
-import CreateAccount from './components/Screens/CreateAccount';
+import React from 'react';
 
 function App() {
-  const [content, setContent] = React.useState("Home Page");
+  const [content, setContent] = React.useState('Home Page');
 
   return (
-    <Router>
-      <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-        <SideNav />
-        <Routes style={{ flex: 1 }}>
-          <Route path="/" element={<Home />} />
-          <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/verification" element={<Verification />} />
-          {/* <Route path="/transaction-history" element={<TransactionHistory />} /> */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/bookkeeper" element={<Bookkeeper />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <TransactionHistory />
+        {/* <GeneratePayment />  */}
+      {/* <SignUp /> */}
+      {/* <TransactionHistory /> */}
+      {/* <Verification /> */}
+      {/* <Dashboard /> */}
+      {/* <Home /> */}
+      {/* <BookKeeper /> */}
+      {/* <CreateAccount /> */}
+    </div>
   );
 }
 

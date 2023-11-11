@@ -29,7 +29,7 @@ function Verification() {
   };
 
   return (
-    <div className="verification-container">
+    <div style={{backgroundColor: '#0E2954',width:'100%',color:'white'}}>
       <div className="header">
         <h2>Document Verification</h2>
       </div>

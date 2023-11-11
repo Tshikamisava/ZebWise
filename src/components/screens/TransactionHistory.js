@@ -69,10 +69,15 @@ function TransactionHistory() {
 
     };
 
+  
+
     //the index range for the current page
     const indexOfLastTransaction = currentPage * transactionsPerPage;
     const indexOfFirstTransaction = indexOfLastTransaction - transactionsPerPage;
     const currentTransactions = transactions.slice(indexOfFirstTransaction, indexOfLastTransaction);
+
+      // Filter transactions based on the references
+  const filteredTransactions = currentTransactions.filter(transaction => transaction.references.includes(searchQuery.toLowerCase()));
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -220,7 +225,7 @@ function TransactionHistory() {
                         </tr>
                     </thead>
                     <tbody>
-                        {currentTransactions.map((transaction, index) => (
+                        {filteredTransactions.map((transaction, index) => (
                             <tr key={transaction.id}>
                                 <td>{index + indexOfFirstTransaction + 1}</td>
                                 <td>{transaction.email}</td>

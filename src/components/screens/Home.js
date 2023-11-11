@@ -55,7 +55,7 @@ function Home() {
 
   return (
     <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white' }}>
-      Home
+      
       <form onSubmit={paywithpaysatck}>
         <input
           type="email"

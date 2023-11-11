@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import { Bar, Pie, Doughnut } from 'react-chartjs-2';
 
 function BookeeperReport() {
@@ -9,14 +10,14 @@ function BookeeperReport() {
         label: 'Income',
         data: [12, 19, 3, 5, 2],
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(255, 255, 255)', // White color for income
         tension: 0.1,
       },
       {
         label: 'Expense',
         data: [8, 15, 7, 10, 5],
         fill: false,
-        borderColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 255, 0)', // Yellow color for expense
         tension: 0.1,
       },
     ],
@@ -61,20 +62,22 @@ function BookeeperReport() {
   };
 
   return (
-    <div className='comp'>
-      <h2>Financial Reports</h2>
-      <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }}>
-        <div style={{ width: '30%' }}>
+    <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white', textAlign: 'center' }}>
+      <h4>Transaction</h4>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Card style={{ backgroundColor: '#28a745', marginBottom: '20px', width: '60%' }}>
           <h3>Income and Expense</h3>
           <Bar data={data} />
-        </div>
-        <div style={{ width: '30%' }}>
-          <h3>Expense Distribution</h3>
-          <Pie data={pieData} />
-        </div>
-        <div style={{ width: '30%' }}>
-          <h3>Profit and Loss</h3>
-          <Doughnut data={doughnutData} />
+        </Card>
+        <div style={{ display: 'flex', justifyContent: 'space-around', width: '60%'}}>
+          <Card style={{ width: '50%', }}>
+            <h3>Expense Distribution</h3>
+            <Pie data={pieData} />
+          </Card>
+          <Card style={{ width: '50%', marginLeft: '50px' }}>
+            <h3>Profit and Loss</h3>
+            <Doughnut data={doughnutData} />
+          </Card>
         </div>
       </div>
     </div>
@@ -82,9 +85,3 @@ function BookeeperReport() {
 }
 
 export default BookeeperReport;
-
-
-
-
-
-

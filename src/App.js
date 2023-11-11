@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SideNav from './components/screens/SideNav';
@@ -17,6 +18,17 @@ function App() {
         </Routes>
       </div>
     </Router>
+=======
+import './App.css';
+import Verification from './components/Screens/Verification';
+
+function App() {
+  return (
+    <div className="App">
+      <Verification />	
+      
+    </div>
+>>>>>>> 9faeaa879183a7305dbf876ecfb4b66dafa6622a
   );
 }
 

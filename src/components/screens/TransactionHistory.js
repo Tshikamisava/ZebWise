@@ -57,6 +57,7 @@ function TransactionHistory() {
           .recent-transaction {
             font-weight: bold;
             margin-top: 20px;
+            margin-left: -750px;  
           }
           .date-button {
             background-color: #fff;

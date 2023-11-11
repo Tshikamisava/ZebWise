@@ -1,13 +1,14 @@
-// App.js
-import React from 'react';
+import './App.css';
+// import Verification from './components/Screens/Verification';
 import TransactionHistory from './components/screens/TransactionHistory';
+
 function App() {
   return (
-    
-      <div className="App">
-<TransactionHistory />
-      </div>
-    
+    <div className="App">
+      <TransactionHistory />
+      {/* <Verification />	 */}
+      
+    </div>
   );
 }
 

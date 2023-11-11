@@ -18,8 +18,6 @@ function getGreeting() {
 }
 
 function Reports() {
-    // Register the necessary scales and controller
-    Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
 
     const [transactions, setTransactions] = useState([]);
 
@@ -43,21 +41,6 @@ function Reports() {
         fetchTransactions();
     }, []);
 
-    const data = {
-        labels: ['January', 'February', 'March', 'April', 'May'],
-        datasets: [
-            {
-                label: 'Transactions',
-                data: transactions.map(transaction => transaction.amount),
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1,
-            },
-        ],
-    };
-
-    const greeting = getGreeting();
-
     // Calculate total balance
     const totalIncome = transactions
         .filter(transaction => transaction.category === 'income')
@@ -68,6 +51,31 @@ function Reports() {
         .reduce((acc, transaction) => acc + parseFloat(transaction.amount), 0);
 
     const totalBalance = totalIncome - totalExpense;
+
+    // Register the necessary scales and controller
+    Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
+
+    const data = {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [
+            {
+                label: 'Transactions',
+                data: [12, 19, 3, 5, 2],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+            },
+            {
+                label: 'Total Expense',
+                data: [8, 15, 7, 10, 5],
+                fill: false,
+                borderColor: 'rgb(255, 99, 132)',
+                tension: 0.1,
+            },
+        ],
+    };
+
+    const greeting = getGreeting();
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>

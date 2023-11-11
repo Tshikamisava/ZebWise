@@ -1,10 +1,11 @@
 import './App.css';
+import Dasboard from './components/screens/Dasboard';
 import Verification from './components/Screens/Verification';
 
 function App() {
   return (
     <div className="App">
-      <Verification />	
+      <Dasboard />
       
     </div>
   );

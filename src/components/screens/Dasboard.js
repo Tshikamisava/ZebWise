@@ -2,10 +2,14 @@ import React from 'react'
 
 function Dasboard() {
   return (
-    <div>
-      
+    <div className='dasboarCont'>
+      <h1>Dasboard</h1>
+
+      <div>
+        
+      </div>
     </div>
   )
 }
 
-export default Dasboard
+export default Dasboard;

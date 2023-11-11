@@ -5,7 +5,8 @@ import { faSearch, faDownload, faMobileAlt } from '@fortawesome/free-solid-svg-i
 
 function TransactionHistory() {
   return (
-    <div>
+    
+    <div >
       <style>
         {`
           body {
@@ -143,6 +144,7 @@ function TransactionHistory() {
         <button className="navigation-button">Next Page</button>
       </div>
     </div>
+    
   );
 }
 

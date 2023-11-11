@@ -30,7 +30,7 @@ function SideNav({ setContent }) {
           <NavLink to="/dashboard" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaChartBar /> Dashboard
           </NavLink><br></br><br></br>
-          <NavLink to="/bookkeeping" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
+          <NavLink to="/bookkeeper" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaBook /> Bookkeeping
           </NavLink><br></br><br></br>
           <NavLink to="/verification" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>

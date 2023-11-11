@@ -5,12 +5,7 @@ import Reports from '../Reports';
 function Dashboard() {
   
   return (
-    <div className="container">
-        <h2 style={{ color: '#fff' }}>Dashboard</h2>
-        <ClickableCards />
-        <Reports />
-
-      
+    <div style={{backgroundColor: '#0E2954',width:'100%',color:'white'}}>
       
     </div>
   );

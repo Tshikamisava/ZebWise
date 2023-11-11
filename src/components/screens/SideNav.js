@@ -6,13 +6,19 @@ import {
   CDBSidebarHeader,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaUser, FaChartBar, FaBook, FaCheckCircle, FaShoppingCart, FaSignOutAlt } from 'react-icons/fa';
+import {
+  FaBars,
+  FaUser,
+  FaChartBar,
+  FaBook,
+  FaCheckCircle,
+  FaShoppingCart,
+  FaSignOutAlt,
+} from 'react-icons/fa';
+import { IoMdTime } from 'react-icons/io';
 
-function SideNav({ setContent }) {
-
-  const handleNavLinkClick = (content) => {
-    setContent(content);
-  };
+function SideNav() {
+ 
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
@@ -39,16 +45,14 @@ function SideNav({ setContent }) {
           <NavLink to="/e-commerce" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaShoppingCart /> E-commerce
           </NavLink><br></br><br></br>
+          <NavLink to="/transaction-history" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
+            <IoMdTime /> Transaction History
+          </NavLink><br></br><br></br>
           <NavLink to="/logout" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaSignOutAlt /> Logout
           </NavLink><br></br>
         </CDBSidebarFooter>
-        
       </CDBSidebar>
-
-      
-
-      
     </div>
   );
 }

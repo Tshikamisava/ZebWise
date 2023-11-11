@@ -39,6 +39,9 @@ function SideNav() {
           <NavLink to="/bookkeeper" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaBook /> Bookkeeping
           </NavLink><br></br><br></br>
+          <NavLink to="/payments" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
+            <FaBook /> Payments
+          </NavLink><br></br><br></br>
           <NavLink to="/verification" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaCheckCircle /> Verification
           </NavLink><br></br><br></br>

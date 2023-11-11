@@ -10,6 +10,7 @@ import Bookkeeper from './components/Screens/BookKeeper';
 import CreateAccount from './components/Screens/CreateAccount';
 import Reports from './components/Reports';
 import Ecommerce from './components/Ecommerce';
+import GeneratePayment from './components/Screens/GeneratePayment';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/dashboard" element={<Reports />} />
           <Route path="/bookkeeper" element={<Bookkeeper />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/payments" element={<GeneratePayment/>} />
         </Routes>
       </div>
     </Router>

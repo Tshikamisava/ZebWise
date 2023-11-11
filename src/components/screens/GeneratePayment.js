@@ -1,6 +1,65 @@
-import React, { useRef } from 'react';
+import React, { useRef , useState} from 'react';
+import PaystackPop from '@paystack/inline-js';
+import { db } from './config/Firebase';
+import {  addDoc,collection, serverTimestamp } from 'firebase/firestore';
 
 function GeneratePayment() {
+  const [email, setEmail] = useState('');
+  const [amount, setAmount] = useState('');
+  const [category, setCategory]  = useState('');
+  
+  const [references, setReferences] = useState('');
+
+
+  const handleConfirm = async () => {
+    const transactionRef = collection(db, 'transactions');
+    const payload = {
+      email,
+      amount,
+      category: 'expense',
+      references,
+      timestamp: serverTimestamp(),
+    };
+
+    try {
+        const docRef = await addDoc(transactionRef, payload);
+        setAmount('')
+        setEmail('')
+        setReferences('')
+    } catch (e) {
+        console.error('Error adding document: ', e);
+    }
+
+  }
+
+  const paywithpaysatck = (e) => {
+    e.preventDefault();
+
+    const paystack = new PaystackPop();
+
+    paystack.newTransaction({
+      key: "pk_test_1614fb1b435881450bf82e4c90488b8143bed936",
+      email: email,
+      amount: amount * 100,
+      references: references,
+      
+
+      onSuccess(transaction) {
+
+        let message = `Payment Complete! Reference ${transaction.reference}`;
+        handleConfirm();
+        alert(message);
+      },
+      onError(error) {
+        // Handle the error properly
+        console.error('Payment Error:', error);
+        alert('Payment Error. Please try again.');
+      },
+      oncancel() {
+        alert('Payment Cancelled');
+      }
+    });
+  }
   // Style for the container div
   const containerStyle = {
     position: 'absolute',
@@ -74,7 +133,33 @@ function GeneratePayment() {
 
   return (
     <div style={containerStyle}>
+       
+      <form onSubmit={paywithpaysatck}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <input
+          type="number"
+          placeholder="Amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <br />
+        <input
+          type="references"
+          placeholder="References"
+          value={references}
+          onChange={(e) => setReferences(e.target.value)}
+        />
+        <br/>
+        <button type="submit">Pay with Paystack</button>
+      </form>
       <span style={textStyle}>Generate Payment Link</span>
+
 
       {/* Bottom text container */}
       <div style={bottomTextContainerStyle}>

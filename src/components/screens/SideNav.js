@@ -8,7 +8,12 @@ import {
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaUser, FaChartBar, FaBook, FaCheckCircle, FaShoppingCart, FaSignOutAlt } from 'react-icons/fa';
 
-function SideNav() {
+function SideNav({ setContent }) {
+
+  const handleNavLinkClick = (content) => {
+    setContent(content);
+  };
+
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
       <CDBSidebar textColor="#333" backgroundColor="#fff">
@@ -52,6 +57,7 @@ function SideNav() {
       >
         {/* Your content goes here */}
         <h1>Content</h1>
+      
       </CDBSidebarContent>
     </div>
   );

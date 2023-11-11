@@ -1,11 +1,13 @@
 import './App.css';
-import Dasboard from './components/screens/Dasboard';
-import Verification from './components/Screens/Verification';
+import Dashboard from './components/screens/Dashboard';
+// import Verification from './components/Screens/Verification';
+import TransactionHistory from './components/screens/TransactionHistory';
 
 function App() {
   return (
     <div className="App">
-      <Dasboard />
+      <Dashboard />
+      {/* <Verification />   */}
       
     </div>
   );

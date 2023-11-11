@@ -18,7 +18,6 @@ function getGreeting() {
 }
 
 function Reports() {
-
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
@@ -52,22 +51,27 @@ function Reports() {
 
     const totalBalance = totalIncome - totalExpense;
 
-    // Register the necessary scales and controller
-    Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
-
-    const data = {
-        labels: ['January', 'February', 'March', 'April', 'May'],
+    // Prepare chart data
+    const chartData = {
+        labels: transactions.map(transaction => {
+            // Assuming timestamp is available and it's in the format "YYYY-MM-DD HH:mm:ss"
+            const date = new Date(transaction.timestamp);
+            return date.toLocaleString('en-us', { month: 'long' });
+        }),
         datasets: [
             {
                 label: 'Transactions',
-                data: [12, 19, 3, 5, 2],
+                data: transactions.map(transaction => parseFloat(transaction.amount)),
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1,
             },
             {
                 label: 'Total Expense',
-                data: [8, 15, 7, 10, 5],
+                data: transactions
+                    .filter(transaction => transaction.category === 'expense')
+                    .map(transaction => parseFloat(transaction.amount))
+                    .reduce((acc, amount) => [...acc, acc.length > 0 ? acc[acc.length - 1] + amount : amount], []),
                 fill: false,
                 borderColor: 'rgb(255, 99, 132)',
                 tension: 0.1,
@@ -75,16 +79,19 @@ function Reports() {
         ],
     };
 
+    // Register the necessary scales and controller
+    Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
+
     const greeting = getGreeting();
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <div style={{ marginRight: '50px' }}>
                 <div style={{marginLeft: '100px'}}>
-                <h2 style={{ color: '#fff' }}>Transaction Trends</h2>
-                <Card style={{ width: 550, height: 300,}}>
-                    <Line data={data} />
-                </Card>
+                    <h2 style={{ color: '#fff' }}>Transaction Trends</h2>
+                    <Card style={{ width: 550, height: 300,}}>
+                        <Line data={chartData} />
+                    </Card>
                 </div>
             </div>
 

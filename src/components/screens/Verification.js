@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function Verification() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [verificationStatus, setVerificationStatus] = useState(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -19,6 +20,8 @@ function Verification() {
           const newProgress = prevProgress + 10;
           if (newProgress >= 100) {
             clearInterval(uploadInterval);
+            // Simulate verification process completion after upload
+            verifyDocument(); // Call the function for actual verification
           }
           return newProgress;
         });
@@ -28,8 +31,28 @@ function Verification() {
     }
   };
 
+  const verifyDocument = async () => {
+    try {
+      // Assuming you have an API endpoint for document verification
+      const response = await fetch('YOUR_VERIFICATION_API_ENDPOINT', {
+        method: 'POST',
+        body: selectedFile,
+        // Additional headers or configurations as needed
+      });
+
+      const data = await response.json();
+
+      // Set the verification status based on the API response
+      setVerificationStatus(data.status); // Adjust based on your API response structure
+    } catch (error) {
+      console.error('Error verifying document:', error);
+      // Handle error and set appropriate status
+      setVerificationStatus('error');
+    }
+  };
+
   return (
-    <div style={{backgroundColor: '#0E2954',width:'100%',color:'white',justifyContent:'center', alignItems:'center',marginTop:'100px'}}>
+    <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
       <div className="header">
         <h2>Document Verification</h2>
       </div>
@@ -51,7 +74,11 @@ function Verification() {
             </div>
           )}
 
-          {uploadProgress === 100 && <p className="upload-complete">Upload complete!</p>}
+          {uploadProgress === 100 && (
+            <p className="upload-complete">
+              Upload complete! Verification status: {verificationStatus}
+            </p>
+          )}
         </div>
       </div>
     </div>

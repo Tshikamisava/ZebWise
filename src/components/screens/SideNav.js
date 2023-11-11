@@ -30,7 +30,7 @@ function SideNav() {
         </CDBSidebarHeader>
 
         <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <NavLink to="/create-account" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
+          <NavLink to="/" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaUser /> Create account
           </NavLink><br></br><br></br>
           <NavLink to="/dashboard" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>

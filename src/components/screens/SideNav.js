@@ -42,7 +42,7 @@ function SideNav() {
           <NavLink to="/verification" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaCheckCircle /> Verification
           </NavLink><br></br><br></br>
-          <NavLink to="/e-commerce" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
+          <NavLink to="/ecommerce" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaShoppingCart /> E-commerce
           </NavLink><br></br><br></br>
           <NavLink to="/transaction-history" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>

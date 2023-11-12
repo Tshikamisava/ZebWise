@@ -55,13 +55,29 @@ const SignUp = () => {
           {/* Add more countries as needed */}
         </select>
 
-       
       </div>
       <div>
-         {/* Sign Up Button */}
-         <button onClick={handleSignUp} style={{ width: '250px',height: '40px', backgroundColor: 'green', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}>Sign Up</button>
+        {/* Sign Up Button */}
+        <button
+          onClick={handleSignUp}
+          style={{
+            width: '250px',
+            height: '40px',
+            backgroundColor: 'green',
+            color: 'white',
+            padding: '5px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginLeft: '10px',
+            transition: 'background-color 0.3s ease', // Adding a smooth transition
+          }}
+          onTouchStart={(e) => { e.target.style.backgroundColor = 'darkgreen'; }} // Darken color on touch start
+          onTouchEnd={(e) => { e.target.style.backgroundColor = 'green'; }} // Restore color on touch end
+        >
+          Sign Up
+        </button>
       </div>
-      
+
     </div>
   );
 };

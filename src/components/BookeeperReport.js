@@ -10,13 +10,15 @@ function BookeeperReport() {
         label: 'Income',
         data: [12, 19, 3, 5, 2],
         fill: false,
-        borderColor: 'rgb(255, 255, 255)', // White color for income
+        backgroundColor: 'rgb(255, 255, 255)', 
+        borderColor: 'rgb(255, 255, 255)', 
         tension: 0.1,
       },
       {
         label: 'Expense',
         data: [8, 15, 7, 10, 5],
         fill: false,
+        backgroundColor: 'rgba(250, 20, 63, 0.99)',
         borderColor: 'rgb(255, 255, 0)', // Yellow color for expense
         tension: 0.1,
       },

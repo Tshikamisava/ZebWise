@@ -62,7 +62,7 @@ function BookeeperReport() {
   };
 
   return (
-    <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white', textAlign: 'center' }}>
+    <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white', textAlign: 'center' , height:'1000px'}}>
       <h4>Transaction</h4>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Card style={{ backgroundColor: '#28a745', marginBottom: '20px', width: '60%' }}>

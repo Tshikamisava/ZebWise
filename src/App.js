@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SideNav from './components/screens/SideNav';
-import Verification from './components/screens/Verification';
-import TransactionHistory from './components/screens/TransactionHistory';
-import CreateAccount from './components/screens/CreateAccount';
+import SideNav from './components/Screens/SideNav';
+import Verification from './components/Screens/Verification';
+import TransactionHistory from './components/Screens/TransactionHistory';
+import CreateAccount from './components/Screens/CreateAccount';
 import Reports from './components/Reports';
 import Ecommerce from './components/Ecommerce';
-import GeneratePayment from './components/screens/GeneratePayment';
+import GeneratePayment from './components/Screens/GeneratePayment';
 import BookeeperReport from './components/BookeeperReport';
 
 

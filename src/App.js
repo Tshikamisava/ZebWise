@@ -1,5 +1,5 @@
-import './App.css';
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SideNav from './components/Screens/SideNav';
 import Verification from './components/Screens/Verification';
@@ -13,25 +13,24 @@ import BookeeperReport from './components/BookeeperReport';
 
 
 function App() {
-  
-  
+ 
   return (
     <Router>
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
         <SideNav />
         <Routes style={{ flex: 1 }}>
-
-          <Route path="/" element={<CreateAccount />} />
+        <Route path="/ecommerce" element={<Ecommerce />} />
+           <Route path="/" element={<CreateAccount />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path='General Ledger' element={<GeneratePayment/>}/>
           <Route path="/transaction-history" element={<TransactionHistory />} />
           <Route path="/dashboard" element={<Reports />} />
-          <Route path="/bookkeeper" element={<BookeeperReport />} />
-          <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/bookkeeper" element={<BookeeperReport/>} /> 
+          
           <Route path="/payments" element={<GeneratePayment/>} />
         </Routes>
       </div>
     </Router>
   );
 }
-
 export default App;

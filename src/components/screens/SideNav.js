@@ -14,6 +14,7 @@ import {
   FaCheckCircle,
   FaShoppingCart,
   FaSignOutAlt,
+  FaMoneyBill,
 } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 
@@ -40,7 +41,7 @@ function SideNav() {
             <FaBook /> Bookkeeping
           </NavLink><br></br><br></br>
           <NavLink to="/payments" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
-            <FaBook /> Payments
+            <FaMoneyBill /> Payments
           </NavLink><br></br><br></br>
           <NavLink to="/verification" className="sidebar-btn-wrapper" style={{ color: 'inherit' }}>
             <FaCheckCircle /> Verification

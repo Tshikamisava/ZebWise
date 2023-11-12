@@ -81,7 +81,7 @@ function BookeeperReport() {
   };
 
   const doughnutData = {
-    labels: ['Profit', 'Loss', 'Net Profit'],
+    labels: ['Profit', 'Loss',],
     datasets: [
       {
         data: [6000, 2000],

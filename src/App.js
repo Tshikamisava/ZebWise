@@ -4,7 +4,6 @@ import SideNav from './components/screens/SideNav';
 import Verification from './components/screens/Verification';
 import TransactionHistory from './components/screens/TransactionHistory';
 import Dashboard from './components/screens/Dashboard';
-// import Home from './components/screens/Home';
 import Bookkeeper from './components/screens/BookKeeper';
 import CreateAccount from './components/screens/CreateAccount';
 import GeneratePayment from './components/screens/GeneratePayment';
@@ -21,15 +20,14 @@ function App() {
         <SideNav />
         <Routes style={{ flex: 1 }}>
         <Route path="/ecommerce" element={<Ecommerce />} />
-        {/* <Route path="/home" element={<Home />} /> */}
-          {/* <Route path="/" element={<CreateAccount />} />
+           <Route path="/" element={<CreateAccount />} />
           <Route path="/verification" element={<Verification />} />
           <Route path='General Ledger' element={<GeneratePayment/>}/>
           <Route path="/transaction-history" element={<TransactionHistory />} />
           <Route path="/dashboard" element={<Reports />} />
-          <Route path="/bookkeper" element={<Bookkeeper/>} /> */}
+          <Route path="/bookkeper" element={<Bookkeeper/>} /> 
           
-          {/* <Route path="/payments" element={<GeneratePayment/>} /> */}
+          <Route path="/payments" element={<GeneratePayment/>} />
         </Routes>
       </div>
     </Router>

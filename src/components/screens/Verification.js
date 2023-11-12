@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 function Verification() {
-  const [selectedFiles, setSelectedFiles] = useState([null, null, null]);
-  const [uploadProgress, setUploadProgress] = useState([0, 0, 0]);
+  const [selectedFiles, setSelectedFiles] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [verificationStatus, setVerificationStatus] = useState(null);
 
   const handleFileChange = (index, e) => {
     const files = [...selectedFiles];
@@ -23,6 +24,8 @@ function Verification() {
           newProgress[index] = prevProgress[index] + 10;
           if (newProgress[index] >= 100) {
             clearInterval(uploadInterval);
+            // Simulate verification process completion after upload
+            verifyDocument(); // Call the function for actual verification
           }
           return newProgress;
         });
@@ -45,8 +48,28 @@ function Verification() {
     }
   };
 
+  const verifyDocument = async () => {
+    try {
+      // Assuming you have an API endpoint for document verification
+      const response = await fetch('YOUR_VERIFICATION_API_ENDPOINT', {
+        method: 'POST',
+        body: selectedFiles,
+        // Additional headers or configurations as needed
+      });
+
+      const data = await response.json();
+
+      // Set the verification status based on the API response
+      setVerificationStatus(data.status); // Adjust based on your API response structure
+    } catch (error) {
+      console.error('Error verifying document:', error);
+      // Handle error and set appropriate status
+      setVerificationStatus('error');
+    }
+  };
+
   return (
-    <div style={{ border: '2px solid white', backgroundColor: '#0E2954', width: '100%', height: '100vh', color: 'white', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: '#0E2954', width: '100%', color: 'white', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
       <div className="header">
         <h2>Document Verification</h2>
       </div>
@@ -54,24 +77,26 @@ function Verification() {
       <div className="content">
         <p>Select and upload one of the following documents for verification</p>
 
-        {[0, 1, 2].map((index) => (
-          <div key={index} className="document-section">
-            <h4>{getDocumentTypeName(index)}</h4>
-            <input type="file" onChange={(e) => handleFileChange(index, e)} />
-            <button onClick={() => handleUpload(index)}>Upload</button>
+        <div className="document-section">
+          <h4>Choose document type</h4>
+          <input type="file" onChange={(e) => handleFileChange(0, e)} />
+          <button onClick={() => handleUpload(0)}>Upload</button>
 
-            {uploadProgress[index] > 0 && uploadProgress[index] < 100 && (
-              <div className="progress-container">
-                <div
-                  className="progress-bar"
-                  style={{ width: `${uploadProgress[index]}%` }}
-                ></div>
-              </div>
-            )}
+          {uploadProgress > 0 && uploadProgress < 100 && (
+            <div className="progress-container">
+              <div
+                className="progress-bar"
+                style={{ width: `${uploadProgress}%` }}
+              ></div>
+            </div>
+          )}
 
-            {uploadProgress[index] === 100 && <p className="upload-complete">Upload complete!</p>}
-          </div>
-        ))}
+          {uploadProgress === 100 && (
+            <p className="upload-complete">
+              Upload complete! Verification status: {verificationStatus}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

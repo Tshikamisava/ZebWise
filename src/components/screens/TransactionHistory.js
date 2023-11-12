@@ -8,7 +8,6 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 
-
 function TransactionHistory() {
     const [transactions, setTransactions] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -181,8 +180,9 @@ function TransactionHistory() {
                 <h2 className="mt-3 text-white"> View Transaction History</h2>
                 <br></br>
                 <h6 className="custom-h6">
-                    Mypayd 2023. Your account is unverified. To have full functionality, please proceed to verify.
-                    <a href="#activate-account">Activate Account</a>
+                    ZebWise 2023. Your account is unverified. To have full functionality, please proceed to verify.
+                    <a href="/verification">Activate Account</a>
+                    
                 </h6>
 
                 {/* Search bar section */}

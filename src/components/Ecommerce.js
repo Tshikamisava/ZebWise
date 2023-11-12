@@ -165,4 +165,4 @@ function Ecommerce() {
   );
 }
 
-export default Ecommerce;
+export default Ecommerce

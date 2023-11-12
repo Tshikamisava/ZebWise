@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SideNav from './components/screens/SideNav';
-import Verification from './components/screens/Verification';
-import TransactionHistory from './components/screens/TransactionHistory';
-import Dashboard from './components/screens/Dashboard';
-import Bookkeeper from './components/screens/BookKeeper';
-import CreateAccount from './components/screens/CreateAccount';
-import GeneratePayment from './components/screens/GeneratePayment';
-import Ecommerce from './components/Ecommerce';
-
-import Reports from './components/Reports';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SideNav from './components/Screens/SideNav';
+import Verification from './components/Screens/Verification';
+import TransactionHistory from './components/Screens/TransactionHistory';
+import CreateAccount from './components/Screens/CreateAccount';
+import Reports from './components/Reports';
+import Ecommerce from './components/Ecommerce';
+import GeneratePayment from './components/Screens/GeneratePayment';
+import BookeeperReport from './components/BookeeperReport';
+
+
 
 function App() {
  
@@ -25,7 +25,7 @@ function App() {
           <Route path='General Ledger' element={<GeneratePayment/>}/>
           <Route path="/transaction-history" element={<TransactionHistory />} />
           <Route path="/dashboard" element={<Reports />} />
-          <Route path="/bookkeper" element={<Bookkeeper/>} /> 
+          <Route path="/bookkeeper" element={<BookeeperReport/>} /> 
           
           <Route path="/payments" element={<GeneratePayment/>} />
         </Routes>

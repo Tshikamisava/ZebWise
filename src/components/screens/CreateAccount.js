@@ -100,6 +100,11 @@ export default function CreateAccount() {
 
 
 
+
+  // Function to handle navigation back to the cart page
+  const handleHome = () => {
+    naviagate('/cart')
+  }
   return (
     
     <div className='auth'>

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Card } from 'react-bootstrap';
 import { Chart, CategoryScale, LinearScale, LineController, PointElement, LineElement } from 'chart.js/auto';
-import { db } from '../components/screens/config/Firebase';
+import { db } from '../components/Screens/config/Firebase';
 import { getDocs, collection } from 'firebase/firestore';
 
 function getGreeting() {
     const currentHour = new Date().getHours();
-    
+     
     if (currentHour >= 5 && currentHour < 12) {
         return 'Good Morning';
     } else if (currentHour >= 12 && currentHour < 18) {

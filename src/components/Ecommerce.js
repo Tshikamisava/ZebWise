@@ -40,7 +40,7 @@ function Ecommerce() {
   const handleSaveChanges = () => {
     // Add logic for saving changes here
     // For demonstration purposes, showing a notification
-    showNotification('Update successful!');
+    showNotification('payment successful!');
     // You can replace the above line with actual logic to save changes
   };
 
@@ -124,9 +124,9 @@ function Ecommerce() {
                   <div>
                     <p>Pay Rent Information:</p>
                     <label htmlFor="rentPrice">Price:</label>
-                    <input type="text" id="rentPrice" placeholder="Enter Rent Price" />
-                    <label htmlFor="roomNumber">Room Number:</label>
-                    <input type="text" id="roomNumber" placeholder="Enter Room Number" />
+                    <input type="text" id="rentPrice" placeholder="Enter Rent Price" /><br/>
+                    <label htmlFor="roomNumber">Office Number:</label>
+                    <input type="text" id="roomNumber" placeholder="Enter Office Number" />
                     {/* Add more information as needed */}
                   </div>
                 )}
@@ -143,7 +143,7 @@ function Ecommerce() {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-primary" onClick={() => { handleSaveChanges(); closeModal(); }}>
-                  Save changes
+                  Proccess Payment
                 </button>
                 <button type="button" className="btn btn-secondary" onClick={closeModal}>
                   Close

@@ -63,22 +63,24 @@ function GeneratePayment() {
   // Style for the container div
   const containerStyle = {
     position: 'absolute',
-    top: '10px',
-    left: '10px',
-    width: 'calc(100% - 20px)', // Make the container full width with padding
-    height: 'calc(100% - 20px)', // Make the container full height with padding
+    top: '50px',
+    left: '380px',
+    width: 'calc(60% - 20px)', // Make the container full width with padding
+    height: 'calc(60% - 20px)', // Make the container full height with padding
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
     border: '1px solid white', // Add border
-    padding: '10px', // Add padding to the container
+    padding: '10px', 
+    // Add padding to the container
   };
 
   // Style for the text
   const textStyle = {
     color: 'white',
     fontSize: '18px',
+    
   };
 
   // Style for the bottom text container
@@ -103,6 +105,7 @@ function GeneratePayment() {
   const inputContainerStyle = {
     display: 'flex',
     alignItems: 'center',
+    marginTop: '10px',
   };
 
   const inputStyle = {
@@ -110,7 +113,7 @@ function GeneratePayment() {
     marginRight: '10px',
     borderRadius: '5px',
     border: '1px solid white', // Add border
-    padding: '8px', // Adjust padding as needed
+    padding: '20px', // Adjust padding as needed
     height: '30px', // Set the height
   };
 
@@ -120,6 +123,7 @@ function GeneratePayment() {
     border: 'none',
     padding: '5px',
     cursor: 'pointer',
+    marginTop: '10px',
   };
 
   // Ref to the input element
@@ -132,6 +136,8 @@ function GeneratePayment() {
   };
 
   return (
+    <div style={{ marginRight: '50px'}}>
+      <span style={textStyle}>Here's your payment page</span>
     <div style={containerStyle}>
        
       <form onSubmit={paywithpaysatck}>
@@ -141,29 +147,29 @@ function GeneratePayment() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
+        <br /><br/>
         <input
           type="number"
           placeholder="Amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
-        <br />
+        <br /><br/>
         <input
           type="references"
           placeholder="References"
           value={references}
           onChange={(e) => setReferences(e.target.value)}
         />
-        <br/>
+        <br/><br/>  
         <button type="submit">Pay with Paystack</button>
       </form>
-      <span style={textStyle}>Generate Payment Link</span>
+      
 
 
       {/* Bottom text container */}
       <div style={bottomTextContainerStyle}>
-        <p style={bottomTextStyle}>Here's your payment page</p>
+        <p style={bottomTextStyle}>Generate Payment Link</p>
         <h6 style={h6Style}>
           Copy the link below and share it with your customers to get paid
         </h6>
@@ -182,6 +188,7 @@ function GeneratePayment() {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
